@@ -187,6 +187,7 @@ def gen(side):
         mn = mesh_name(mesh)
         a(f'{ind}<body name="{s}_{short}" pos="{F(pos)}" quat="{F(quat)}">')
         if jname:
+            a(f'{ind}  <inertial pos="0 0 0" mass="0.1" diaginertia="1e-4 1e-4 1e-4" />')
             a(f'{ind}  <joint name="{s}_{jname}" pos="0 0 0" axis="{F(jaxis)}" range="{R(jrange)}" ref="0.0" />')
         a(f'{ind}  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" '
           f'rgba="0.79 0.82 0.93 1" mesh="{s}_{mn}" />')
@@ -201,6 +202,7 @@ def gen(side):
             a(f'{ind}<body name="{bname}" pos="{F(pos)}" quat="{F(quat)}">')
             ci = "  " * (depth + 1)
             if jname:
+                a(f'{ci}<inertial pos="0 0 0" mass="0.01" diaginertia="1e-6 1e-6 1e-6" />')
                 a(f'{ci}<joint name="{s}_{jname}" pos="0 0 0" axis="{F(jaxis)}" range="{R(jrange)}" ref="0.0" />')
             if mesh:
                 mn = mesh_name(mesh)
