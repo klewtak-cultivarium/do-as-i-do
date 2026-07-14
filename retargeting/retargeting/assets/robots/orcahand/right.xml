@@ -1,0 +1,197 @@
+<mujoco model="orcahand_right">
+  <compiler angle="radian" meshdir="meshes/" autolimits="true" />
+  <default>
+    <geom density="800" condim="1" contype="0" conaffinity="0" />
+    <position kp="300" dampratio="1.0" inheritrange="1" />
+    <joint damping="0.0" armature="1.0" frictionloss="0.0" />
+    <site size="0.005" type="sphere" rgba="1 0 0 1" group="3" />
+  </default>
+  <asset>
+    <mesh name="right_ForeArmStructure-Model" file="right/ForeArmStructure-Model.stl" />
+    <mesh name="right_ForeArmStructure-Model_Logo" file="right/ForeArmStructure-Model_Logo.stl" />
+    <mesh name="right_I-AP-R" file="right/I-AP-R.stl" />
+    <mesh name="right_I-FingerTipAssembly_I-DP-Skin" file="right/I-FingerTipAssembly_I-DP-Skin.stl" />
+    <mesh name="right_I-IP_IP" file="right/I-IP_IP.stl" />
+    <mesh name="right_I-PP" file="right/I-PP.stl" />
+    <mesh name="right_I-PP_PP" file="right/I-PP_PP.stl" />
+    <mesh name="right_I-PP_Skin" file="right/I-PP_Skin.stl" />
+    <mesh name="right_M-AP" file="right/M-AP.stl" />
+    <mesh name="right_M-FingerTipAssembly_M-DP-Skin" file="right/M-FingerTipAssembly_M-DP-Skin.stl" />
+    <mesh name="right_M-IP_IP" file="right/M-IP_IP.stl" />
+    <mesh name="right_M-PP" file="right/M-PP.stl" />
+    <mesh name="right_M-PP_PP" file="right/M-PP_PP.stl" />
+    <mesh name="right_M-PP_Skin" file="right/M-PP_Skin.stl" />
+    <mesh name="right_P-AP" file="right/P-AP.stl" />
+    <mesh name="right_P-FingerTipAssembly_P-DP-Skin" file="right/P-FingerTipAssembly_P-DP-Skin.stl" />
+    <mesh name="right_P-IP_IP" file="right/P-IP_IP.stl" />
+    <mesh name="right_P-PP" file="right/P-PP.stl" />
+    <mesh name="right_P-PP_PP" file="right/P-PP_PP.stl" />
+    <mesh name="right_P-PP_Skin" file="right/P-PP_Skin.stl" />
+    <mesh name="right_R-Carpals" file="right/R-Carpals.stl" />
+    <mesh name="right_R-T-AP" file="right/R-T-AP.stl" />
+    <mesh name="right_T-DP_Skin" file="right/T-DP_Skin.stl" />
+    <mesh name="right_T-DP_T-DP" file="right/T-DP_T-DP.stl" />
+    <mesh name="right_T-PP" file="right/T-PP.stl" />
+    <mesh name="right_T-PP_PP" file="right/T-PP_PP.stl" />
+    <mesh name="right_T-PP_Skin" file="right/T-PP_Skin.stl" />
+    <mesh name="right_T-TP-R" file="right/T-TP-R.stl" />
+    <mesh name="right_TopTower-Model" file="right/TopTower-Model.stl" />
+  </asset>
+  <worldbody>
+    <body name="right_base_tx">
+      <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+      <joint name="right_pos_x" pos="0 0 0" axis="1 0 0" type="slide" range="-5 5" />
+      <body name="right_base_ty">
+        <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+        <joint name="right_pos_y" pos="0 0 0" axis="0 1 0" type="slide" range="-5 5" />
+        <body name="right_base_tz">
+          <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+          <joint name="right_pos_z" pos="0 0 0" axis="0 0 1" type="slide" range="-5 5" />
+          <body name="right_base_roll">
+            <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+            <joint name="right_rot_x" pos="0 0 0" axis="1 0 0" type="hinge" range="-6.28 6.28" />
+            <body name="right_base_pitch">
+              <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+              <joint name="right_rot_y" pos="0 0 0" axis="0 1 0" type="hinge" range="-6.28 6.28" />
+              <body name="right_base_yaw">
+                <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+                <joint name="right_rot_z" pos="0 0 0" axis="0 0 1" type="hinge" range="-6.28 6.28" />
+                <body name="right_hand_palm" pos="0 0 0">
+                  <inertial pos="0.006 0.001 0.039" mass="0.72" diaginertia="0.000713 0.000814 0.000208" />
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_ForeArmStructure-Model" name="right_hand_palm_visual" />
+                  <geom name="collision_hand_right_palm_0" type="box" size="0.016 0.035 0.035" pos="0 0 0.05" group="3" rgba="0 1 0 1" />
+                  <site name="right_palm" pos="0 0 0.05" type="box" size="0.01 0.02 0.03" />
+                  <body name="right_forearm" pos="0 0 0" quat="1 0 0 0">
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_ForeArmStructure-Model" />
+                    <body name="right_toptower" pos="-0.01000000000000002 0.05230000000000584 -2.08e-17" quat="-0.4999999999999985 0.4999999999999986 -0.5 -0.4999999999999999">
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_TopTower-Model" />
+                      <body name="right_carpals" pos="-0.001877078063108616 0.005000000000000039 0.08950000067055244" quat="-0.7071067811865475 0 0 0.7071067811865495">
+                        <joint name="right_wrist" pos="0 0 0" axis="-1 -1.13e-16 5.94e-17" range="-1.134464 0.61086524" ref="0.0" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_R-Carpals" />
+                        <body name="right_thumb_cmc" pos="-0.02121341227594994 0.01433246945435063 -0.02172481544690429" quat="0.6591193783565908 0.3595106003611906 -0.07247312029417424 -0.656552678874735">
+                          <joint name="right_t-cmc" pos="0 0 0" axis="-7.77e-16 5.41e-16 -1" range="-0.78539816 0.57595865" ref="0.0" />
+                          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_T-TP-R" />
+                          <geom name="collision_hand_right_thumb_3" type="capsule" size="0.0120" fromto="0 0 0.0200 0 0 0" group="3" rgba="0 1 0 1" />
+                          <body name="right_thumb_ap" pos="-0.036 1.39e-17 -7.63e-17" quat="0.819152044288991 -0.5735764363510464 -2.22e-16 -1.55e-15">
+                            <joint name="right_t-abd" pos="0 0 0" axis="-1.5e-15 0.3420201433256641 0.9396926207859044" range="-0.31415927 0.95993109" ref="0.0" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_R-T-AP" />
+                            <geom name="collision_hand_right_thumb_2" type="capsule" size="0.0120" fromto="0 0 0.0280 0 0 0" group="3" rgba="0 1 0 1" />
+                            <body name="right_thumb_pp" pos="5.03e-17 1.02e-17 2.91e-17" quat="1.22e-15 0.7071067811865461 -1.39e-15 -0.7071067811865444">
+                              <joint name="right_t-mcp" pos="0 0 0" axis="-3.14e-15 -1 2.94e-15" range="-0.43633231 1.7453293" ref="0.0" />
+                              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_T-PP" />
+                              <geom name="collision_hand_right_thumb_1" type="capsule" size="0.0100" fromto="0 0 0.0300 0 0 0" group="3" rgba="0 1 0 1" />
+                              <body name="right_thumb_dp" pos="0.001 5.2e-18 0.032" quat="1 0 -2.78e-17 -1.92e-15">
+                                <joint name="right_t-pip" pos="0 0 0" axis="4.72e-16 -1 3.16e-15" range="-0.26179939 1.8675023" ref="0.0" />
+                                <geom name="collision_hand_right_thumb_0" type="capsule" size="0.0070" fromto="0 0 0.0200 0 0 0" group="3" rgba="0 1 0 1" />
+                                <site name="right_thumb_tip" pos="0 0 0.0150" />
+                                <site name="track_hand_right_thumb_tip" pos="0 0 0.0150" />
+                                <site name="trace_hand_right_thumb_tip" pos="0 0 0.0150" />
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                        <body name="right_index_ap" pos="-0.02557548169125012 0.0006809253025602396 0.03835732632869239" quat="0.519646788331587 0.5667240334680995 0.4317303415794619 -0.4715930421730138">
+                          <joint name="right_i-abd" pos="0 0 0" axis="-8.330000000000001e-17 3.33e-16 1" range="-0.43633231 0.52359878" ref="0.0" />
+                          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_I-AP-R" />
+                          <geom name="collision_hand_right_index_2" type="capsule" size="0.0100" fromto="0 0 0.0250 0 0 0" group="3" rgba="0 1 0 1" />
+                          <body name="right_index_pp" pos="-0.0004009681508766414 -1.76e-17 2.89e-15" quat="0.7071067811865461 1.85e-15 -0.7071067811865465 -2.05e-15">
+                            <joint name="right_i-mcp" pos="0 0 0" axis="5.83e-15 -1 1.11e-16" range="-0.43633231 1.7453293" ref="0.0" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_I-PP" />
+                            <geom name="collision_hand_right_index_1" type="capsule" size="0.0090" fromto="0 0 0.0370 0 0 0" group="3" rgba="0 1 0 1" />
+                            <body name="right_index_tip" pos="0.0015 8.669999999999999e-18 0.037" quat="1 1.67e-16 4.16e-17 3.39e-15">
+                              <joint name="right_i-pip" pos="0 0 0" axis="-3.61e-15 -1 2.78e-16" range="-0.26179939 1.8675023" ref="0.0" />
+                              <geom name="collision_hand_right_index_0" type="capsule" size="0.0070" fromto="0 0 0.0220 0 0 0" group="3" rgba="0 1 0 1" />
+                              <site name="right_index_tip" pos="0 0 0.0150" />
+                              <site name="track_hand_right_index_tip" pos="0 0 0.0150" />
+                              <site name="trace_hand_right_index_tip" pos="0 0 0.0150" />
+                            </body>
+                          </body>
+                        </body>
+                        <body name="right_middle_ap" pos="-0.0007567300518294843 -0.001146326008916961 0.04825182678794436" quat="-0.5006540699144025 -0.5006540699144022 -0.4993450733492283 0.4993450733492286">
+                          <joint name="right_m-abd" pos="0 0 0" axis="1.11e-15 -2.22e-16 1" range="-0.4712389 0.4712389" ref="0.0" />
+                          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_M-AP" />
+                          <geom name="collision_hand_right_middle_2" type="capsule" size="0.0100" fromto="0 0 0.0250 0 0 0" group="3" rgba="0 1 0 1" />
+                          <body name="right_middle_pp" pos="-0.000616967942905312 -1.84e-17 4.37e-15" quat="-0.7071067811865464 -2.22e-15 0.7071067811865461 2.22e-15">
+                            <joint name="right_m-mcp" pos="0 0 0" axis="6.05e-15 -1 -1.11e-16" range="-0.43633231 1.7453293" ref="0.0" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_M-PP" />
+                            <geom name="collision_hand_right_middle_1" type="capsule" size="0.0090" fromto="0 0 0.0400 0 0 0" group="3" rgba="0 1 0 1" />
+                            <body name="right_middle_tip" pos="0.002 -3.47e-18 0.04" quat="1 2.78e-16 1.39e-16 3.28e-15">
+                              <joint name="right_m-pip" pos="0 0 0" axis="-3.28e-15 -1 4.44e-16" range="-0.26179939 1.8675023" ref="0.0" />
+                              <geom name="collision_hand_right_middle_0" type="capsule" size="0.0070" fromto="0 0 0.0220 0 0 0" group="3" rgba="0 1 0 1" />
+                              <site name="right_middle_tip" pos="0 0 0.0150" />
+                              <site name="track_hand_right_middle_tip" pos="0 0 0.0150" />
+                              <site name="trace_hand_right_middle_tip" pos="0 0 0.0150" />
+                            </body>
+                          </body>
+                        </body>
+                        <body name="right_ring_ap" pos="0.02300540741341827 -0.0001014498859375039 0.04085073553625944" quat="-0.4851713041498216 -0.4384920443232376 -0.554729417883375 0.514401405159008">
+                          <joint name="right_r-abd" pos="0 0 0" axis="8.88e-16 -5.55e-17 1" range="-0.4712389 0.4712389" ref="0.0" />
+                          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_M-AP" />
+                          <geom name="collision_hand_right_ring_2" type="capsule" size="0.0100" fromto="0 0 0.0250 0 0 0" group="3" rgba="0 1 0 1" />
+                          <body name="right_ring_pp" pos="-0.0006169679429055062 2.99e-17 4.53e-15" quat="-0.7071067811865464 -2.1e-15 0.7071067811865462 2e-15">
+                            <joint name="right_r-mcp" pos="0 0 0" axis="5.94e-15 -1 1.11e-16" range="-0.43633231 1.7453293" ref="0.0" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_M-PP" />
+                            <geom name="collision_hand_right_ring_1" type="capsule" size="0.0090" fromto="0 0 0.0400 0 0 0" group="3" rgba="0 1 0 1" />
+                            <body name="right_ring_tip" pos="0.002 -6.94e-18 0.04" quat="1 1.11e-16 5.55e-17 3.11e-15">
+                              <joint name="right_r-pip" pos="0 0 0" axis="-2.94e-15 -1 2.22e-16" range="-0.26179939 1.8675023" ref="0.0" />
+                              <geom name="collision_hand_right_ring_0" type="capsule" size="0.0070" fromto="0 0 0.0220 0 0 0" group="3" rgba="0 1 0 1" />
+                              <site name="right_ring_tip" pos="0 0 0.0150" />
+                              <site name="track_hand_right_ring_tip" pos="0 0 0.0150" />
+                              <site name="trace_hand_right_ring_tip" pos="0 0 0.0150" />
+                            </body>
+                          </body>
+                        </body>
+                        <body name="right_pinky_ap" pos="0.04666877715017955 0.00500098395792942 0.02910141745861505" quat="-0.4573184612560756 -0.3401988014151619 -0.6138690651598068 0.5461587418964287">
+                          <joint name="right_p-abd" pos="0 0 0" axis="9.71e-16 1.67e-16 1" range="-0.52359878 0.52359878" ref="0.0" />
+                          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_P-AP" />
+                          <geom name="collision_hand_right_pinky_2" type="capsule" size="0.0090" fromto="0 0 0.0230 0 0 0" group="3" rgba="0 1 0 1" />
+                          <body name="right_pinky_pp" pos="-7.08e-17 -3.18e-17 -1.36e-17" quat="-0.7071067811865464 -2e-15 0.707106781186546 2.11e-15">
+                            <joint name="right_p-mcp" pos="0 0 0" axis="6.44e-15 -1 6.66e-16" range="-0.43633231 1.7453293" ref="0.0" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.79 0.82 0.93 1" mesh="right_P-PP" />
+                            <geom name="collision_hand_right_pinky_1" type="capsule" size="0.0080" fromto="0 0 0.0310 0 0 0" group="3" rgba="0 1 0 1" />
+                            <body name="right_pinky_tip" pos="0.001 3.12e-17 0.031" quat="1 5.55e-17 1.39e-17 3.11e-15">
+                              <joint name="right_p-pip" pos="0 0 0" axis="-2.61e-15 -1 3.89e-16" range="-0.26179939 1.8675023" ref="0.0" />
+                              <geom name="collision_hand_right_pinky_0" type="capsule" size="0.0060" fromto="0 0 0.0200 0 0 0" group="3" rgba="0 1 0 1" />
+                              <site name="right_pinky_tip" pos="0 0 0.0120" />
+                              <site name="track_hand_right_pinky_tip" pos="0 0 0.0120" />
+                              <site name="trace_hand_right_pinky_tip" pos="0 0 0.0120" />
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="right_pos_x_position" joint="right_pos_x" kp="1000" />
+    <position name="right_pos_y_position" joint="right_pos_y" kp="1000" />
+    <position name="right_pos_z_position" joint="right_pos_z" kp="1000" />
+    <position name="right_rot_x_position" joint="right_rot_x" kp="1000" />
+    <position name="right_rot_y_position" joint="right_rot_y" kp="1000" />
+    <position name="right_rot_z_position" joint="right_rot_z" kp="1000" />
+    <position name="right_wrist_position" joint="right_wrist" />
+    <position name="right_t-cmc_position" joint="right_t-cmc" />
+    <position name="right_t-abd_position" joint="right_t-abd" />
+    <position name="right_t-mcp_position" joint="right_t-mcp" />
+    <position name="right_t-pip_position" joint="right_t-pip" />
+    <position name="right_i-abd_position" joint="right_i-abd" />
+    <position name="right_i-mcp_position" joint="right_i-mcp" />
+    <position name="right_i-pip_position" joint="right_i-pip" />
+    <position name="right_m-abd_position" joint="right_m-abd" />
+    <position name="right_m-mcp_position" joint="right_m-mcp" />
+    <position name="right_m-pip_position" joint="right_m-pip" />
+    <position name="right_r-abd_position" joint="right_r-abd" />
+    <position name="right_r-mcp_position" joint="right_r-mcp" />
+    <position name="right_r-pip_position" joint="right_r-pip" />
+    <position name="right_p-abd_position" joint="right_p-abd" />
+    <position name="right_p-mcp_position" joint="right_p-mcp" />
+    <position name="right_p-pip_position" joint="right_p-pip" />
+  </actuator>
+</mujoco>

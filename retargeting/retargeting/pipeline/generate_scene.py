@@ -31,6 +31,8 @@ _UR3_FOREARM_DIRS: dict[tuple[str, str], tuple[float, float, float]] = {
     ("sharpa", "left"): (0.0, 0.0, -1.0),
     ("mano", "right"): (1.0, 0.0, 0.0),
     ("mano", "left"): (-1.0, 0.0, 0.0),
+    ("orcahand", "right"): (0.0, 0.0, -1.0),
+    ("orcahand", "left"): (0.0, 0.0, -1.0),
 }
 
 
